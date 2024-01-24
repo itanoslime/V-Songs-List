@@ -24,7 +24,7 @@ export default[
         des:''
     },
     {
-        name:'YY',
+        name:'YYYYY',
         singer:'23.exe / 初音ミク',
         lang:'日语',
         style:'二次元',
