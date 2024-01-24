@@ -372,7 +372,7 @@ const bgStyle = computed(() => {
 .el-table tr {
     background-color: rgba(255, 255, 255, 0);
 }
-/**/
+
 /*改表格背景*/
 .el-table tbody tr:hover {
     /* background-color: #C2F0FF !important; */
