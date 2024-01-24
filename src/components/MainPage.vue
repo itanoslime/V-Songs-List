@@ -1,7 +1,7 @@
 <template>
     <div class="topflex">
         <!--背景-->
-        <img class="bg">
+        <div :style="bgStyle" class="bg"></div>
         <div class="main-box">
             <div class="header topflex">
                 <span class="header-text">欢迎来到橘子的歌单</span>
@@ -20,7 +20,7 @@
                     </el-form-item>
                     <el-form-item style="margin: 0 10px;">
                         <el-switch v-model="ShowSC" inline-prompt active-text="SC" inactive-text="SC"
-                            style="--el-switch-on-color: #fee1a5; --el-switch-off-color: #cacacc"></el-switch>
+                            style="--el-switch-on-color: #fee1a5; --el-switch-off-color: #cacacc" class="scbtn"></el-switch>
                     </el-form-item>
                     <el-form-item class="form-item">
                         <el-select v-model="nav.singer" style="min-width: 60px;" placeholder="全部歌手">
@@ -42,7 +42,7 @@
                     </el-form-item>
                 </el-form>
                 <div>
-                    <el-table :data="searchResults" height="600" style="width: 100%" class="musiclist" border lazy
+                    <el-table :data="searchResults" height="550" style="width: 100%" class="musiclist" border lazy
                         :row-style="{ height: '50px' }" :cell-style="setCellColor" sortable=true @row-click="CopyClick"
                         empty-text="没有这首歌！">
                         <el-table-column prop="name" label="歌名" width="240" class="musiclist-text" />
@@ -64,6 +64,7 @@ import { reactive, computed } from 'vue'
 import { ref } from 'vue'
 import musiclist from '../assets/music/musiclist'
 import { useClipboard } from 'vue-clipboard2'
+import bgImage from '../assets/img/新年合照2024.png'
 //表单数据
 const nav = reactive({
     name: '',
@@ -117,6 +118,7 @@ const setCellColor = ({ columnIndex }) => {
     }
 }
 
+
 //随机点歌
 const RandonMusic = (() => {
     const listLength = musiclist.length;
@@ -154,11 +156,27 @@ const searchSong = () => {
         : musiclist
 }
 
+const bgStyle = computed(() => {
+    let url;
+    if (name.value) {
+        const obj = new URL(`./assets/img/${name.value}.jpg`, import.meta.url);
+        url = obj.pathname;
+    } else {
+        url = bgImage;
+    }
+
+    return {
+        backgroundImage: `url(${url})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'scroll',
+        backgroundRepeat: 'no-repeat',
+    };
+});
 </script>
 
 <style>
 .bg {
-    background-image: url('src/assets/img/新年合照2024.png');
     background-position: center;
     background-size: cover;
     background-attachment: scroll;
@@ -237,11 +255,17 @@ const searchSong = () => {
     }
 
     .body {
-        min-height: 600px;
+        min-height: calc(100vh - 350px);
     }
 
     .main-box {
         max-width: 100%;
+    }
+}
+
+@media screen and (width < 439px) {
+    .scbtn {
+        margin-top: 10px;
     }
 }
 
@@ -368,7 +392,8 @@ const searchSong = () => {
     width: 15%;
     min-width: 105px;
 }
-.footer{
+
+.footer {
     position: absolute;
     bottom: 5px;
 }

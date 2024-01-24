@@ -1,7 +1,7 @@
 export default[
     {
         name:'Your Star',
-        singer:'塞壬唱片-MSR / DJ Okawari / Stephanie',
+        singer:'塞壬唱片-MSR',
         lang:'中文',
         style:'流行',
         sc:'',
@@ -9,7 +9,7 @@ export default[
     },
     {
         name:'Your Star1',
-        singer:'塞壬唱片-MSR / DJ Okawari / Stephanie',
+        singer:'塞壬唱片-MSR',
         lang:'中文',
         style:'流行',
         sc:'30',
@@ -40,11 +40,11 @@ export default[
         des:''
     },
     {
-        name:'YY',
-        singer:'23.exe / 初音ミク',
-        lang:'日语',
+        name:'Running In The Dark',
+        singer:'塞壬唱片-MSR',
+        lang:'英语',
         style:'二次元',
-        sc:'50',
+        sc:'',
         des:''
     },
 ]
