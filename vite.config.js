@@ -7,7 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
   transpileDependencies: true,
-  base: '/VsingerDemo/',
+  base: '/V-Songs-List/',
   plugins: [
     vue(),
     AutoImport({
