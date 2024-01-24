@@ -7,9 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
   transpileDependencies: true,
-  publicPath:'./',
-  outputDir: 'dist',
-  assetsDir: 'static',
+  base: '/VsingerDemo/',
   plugins: [
     vue(),
     AutoImport({
